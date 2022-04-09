@@ -30,6 +30,7 @@ def attempt_download(file, repo='ultralytics/yolov5'):
             tag = subprocess.check_output('git tag', shell=True).decode('utf-8').split('\n')[-2]
 
         name = file.name
+        tag = 'v5.0' # incompatible with later versions of yolov5 weights
         if name in assets:
             msg = f'{file} missing, try downloading from https://github.com/{repo}/releases/'
             redundant = False  # second download option
